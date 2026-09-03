@@ -12,6 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Unrar project files
+      run: |
+        sudo apt-get update && sudo apt-get install -y unrar
+        unrar x GateLock-android-project.rar .
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
