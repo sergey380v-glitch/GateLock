@@ -57,3 +57,12 @@ dependencies {
 
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
+android {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = freeCompilerArgs + listOf(
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+            )
+        }
+    }
+}
