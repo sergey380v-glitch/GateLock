@@ -22,7 +22,9 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Build APK with Gradle
-      run: gradle assembleDebug
+      run: gradle assembleDebug -Pkotlin.optIn=androidx.compose.material3.ExperimentalMaterial3Api
+      env:
+        JAVA_TOOL_OPTIONS: "-Dorg.gradle.daemon=false"
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
