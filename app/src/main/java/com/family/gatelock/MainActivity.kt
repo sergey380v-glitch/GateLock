@@ -50,7 +50,7 @@ private val WarnAmber = Color(0xFFFFB74D)
 private val CardSurface = Color(0xFF16332A)
 private val TextPrimary = Color(0xFFF3FBF6)
 private val TextSecondary = Color(0xFF9FC4B2)
-
+@OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
 
     private val haClient = HaClient()
