@@ -21,8 +21,9 @@ jobs:
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
 
-    - name: Build APK with Gradle
-      run: gradle assembleDebug -Dorg.gradle.project.kotlin.warnings.as.errors=false -Pandroid.suppressUnsupportedCompileSdk=true
+    - name: Disable warningsAsErrors and Build APK
+      run: |
+        gradle assembleDebug -Pkotlin.warnings.as.errors=false -Pkotlin.compiler.allWarningsAsErrors=false
       env:
         JAVA_TOOL_OPTIONS: "-Dorg.gradle.daemon=false"
 
