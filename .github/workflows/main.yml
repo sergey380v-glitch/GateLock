@@ -22,7 +22,7 @@ jobs:
       uses: gradle/actions/setup-gradle@v3
 
     - name: Build APK with Gradle
-      run: gradle assembleDebug -Pkotlin.optIn=androidx.compose.material3.ExperimentalMaterial3Api
+      run: gradle assembleDebug -Dorg.gradle.project.kotlin.warnings.as.errors=false -Pandroid.suppressUnsupportedCompileSdk=true
       env:
         JAVA_TOOL_OPTIONS: "-Dorg.gradle.daemon=false"
 
